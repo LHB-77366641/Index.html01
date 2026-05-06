@@ -11,6 +11,10 @@
         <h1>Mishima Books</h1>
         <img src="images/logo.png" alt="Logo de Mishima Books" class="logo">
         <p>Tu librería de confianza</p>
+        <div class="button-group">
+            <button id="welcomeBtn" class="btn">¡Haz clic para un saludo!</button>
+            <button id="themeToggleBtn" class="btn">Modo oscuro</button>
+        </div>
     </header>
     <nav>
         <ul>
@@ -29,17 +33,26 @@
         <section id="libros">
             <h2>Nuestros Libros</h2>
             <p>Nuestro equipo de expertos está siempre dispuesto a ayudarte a encontrar el libro perfecto para ti o para regalar.</p>
-            <figure class="book-highlight">
-                <img src="images/R.jpg" alt="R">
-                <figcaption>Las travesuras de una niña mala</figcaption>
-            </figure>
-            <figure>
-                <img src="images/love_story.png" alt="Love Story">
-                <figcaption>Love Story</figcaption>
-            </figure>
-            <img src="images/captura_libros.png" alt="Captura de pantalla de libros">
-            <figcaption>Un tranvía llamado deseo</figcaption>
-            </figure>
+            <div class="search-bar">
+                <label for="bookSearch">Buscar libro:</label>
+                <input type="text" id="bookSearch" placeholder="Escribe un título o autor">
+                <button id="bookSearchBtn" class="btn small">Buscar</button>
+            </div>
+            <p id="searchMessage" class="form-message"></p>
+            <div class="book-grid">
+                <figure class="book-card" data-title="Las travesuras de una niña mala">
+                    <img src="images/R.jpg" alt="R">
+                    <figcaption>Las travesuras de una niña mala</figcaption>
+                </figure>
+                <figure class="book-card" data-title="Love Story">
+                    <img src="images/love_story.png" alt="Love Story">
+                    <figcaption>Love Story</figcaption>
+                </figure>
+                <figure class="book-card" data-title="Un tranvía llamado deseo">
+                    <img src="images/captura_libros.png" alt="Un tranvía llamado deseo">
+                    <figcaption>Un tranvía llamado deseo</figcaption>
+                </figure>
+            </div>
             <div class="section-icons">
                 <span>📘</span>
                 <span>📗</span>
@@ -49,10 +62,14 @@
         <section id="eventos">
             <h2>Eventos Literarios</h2>
             <p>Además, ofrecemos eventos literarios, clubes de lectura y recomendaciones personalizadas para enriquecer tu experiencia como lector.</p>
-            <figure>
-                <img src="images/casa_literatura_peruana.jpg" alt="Casa de la Literatura Peruana">
-                <figcaption>Casa de la Literatura Peruana</figcaption>
-            </figure>
+            <button id="eventToggleBtn" class="btn small">Mostrar detalles del evento</button>
+            <div class="event-details hidden">
+                <figure>
+                    <img src="images/casa_literatura_peruana.jpg" alt="Casa de la Literatura Peruana">
+                    <figcaption>Casa de la Literatura Peruana</figcaption>
+                </figure>
+                <p>Próximamente: talleres, firmas de autores y presentaciones especiales en nuestra librería.</p>
+            </div>
             <div class="section-icons">
                 <span>🗓️</span>
                 <span>🎤</span>
@@ -62,7 +79,23 @@
         <section id="contacto">
             <h2>Contacto</h2>
             <p>¡Ven y descubre el placer de la lectura en Mishima Books!</p>
-            <a href="https://www.mishimabooks.com/">Visita nuestro sitio web</a>
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="name">Nombre</label>
+                    <input type="text" id="name" placeholder="Tu nombre" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Correo electrónico</label>
+                    <input type="email" id="email" placeholder="ejemplo@correo.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Mensaje</label>
+                    <textarea id="message" rows="4" placeholder="Escribe tu consulta" required></textarea>
+                </div>
+                <button class="btn" type="submit">Enviar mensaje</button>
+            </form>
+            <p id="contactMessage" class="form-message"></p>
+            <a href="https://www.mishimabooks.com/" target="_blank" rel="noopener">Visita nuestro sitio web</a>
             <div class="section-icons">
                 <span>✉️</span>
                 <span>📞</span>
@@ -71,7 +104,8 @@
         </section>
     </main>
     <footer>
-        <p>&copy; 2026 Mishima Books. Todos los derechos reservados.</p>
+        <p>&copy; <span id="currentYear">2026</span> Mishima Books. Todos los derechos reservados.</p>
     </footer>
+    <script src="js/script.js" defer></script>
 </body>
 </html>
